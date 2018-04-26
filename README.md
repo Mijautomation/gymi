@@ -1,1 +1,13 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/tabs) repo! :point_left:
+### :point_right: Readme coming soon :point_left:
+
+### Instructions to run
+
+1. Install NodeJS
+2. Run 'npm install -g ionic'
+3. Run 'npm install' in the root folder
+4. Run 'npm run ionic:serve' in the root folder
+
+Credits:
+
+Iconpack: Flatpack.com
+Software: Milan Steenwinkel & Jimmy de Graaf
