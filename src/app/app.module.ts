@@ -1,21 +1,24 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ComponentsModule } from '../components/components.module';
-import { RegistrationPage } from '../pages/registration/registration';
-import { RegistrationPageModule } from '../pages/registration/registration.module';
-import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { RegistrationPage } from '../pages/registration/registration';
+import { RegistrationPageModule } from '../pages/registration/registration.module';
 import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { SocialProvider } from '../providers/social/social';
 import { EquipmentProvider } from '../providers/equipment/equipment';
+import { SessionProvider } from '../providers/session/session';
+import { SocialProvider } from '../providers/social/social';
 import { UserProvider } from '../providers/user/user';
+import { MyApp } from './app.component';
 
 @NgModule({
     declarations: [
@@ -23,12 +26,14 @@ import { UserProvider } from '../providers/user/user';
         AboutPage,
         ContactPage,
         HomePage,
-        TabsPage
+        TabsPage,
+        LoginPage
     ],
     imports: [
         BrowserModule,
         ComponentsModule,
         RegistrationPageModule,
+        HttpClientModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
@@ -38,7 +43,8 @@ import { UserProvider } from '../providers/user/user';
         ContactPage,
         HomePage,
         TabsPage,
-        RegistrationPage
+        RegistrationPage,
+        LoginPage
     ],
     providers: [
         StatusBar,
@@ -46,7 +52,9 @@ import { UserProvider } from '../providers/user/user';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         SocialProvider,
         EquipmentProvider,
-        UserProvider
+        UserProvider,
+        HttpClientModule,
+    SessionProvider
     ]
 })
 export class AppModule {
