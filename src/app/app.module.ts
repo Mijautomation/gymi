@@ -54,7 +54,7 @@ import { MyApp } from './app.component';
         EquipmentProvider,
         UserProvider,
         HttpClientModule,
-    SessionProvider
+        SessionProvider
     ]
 })
 export class AppModule {

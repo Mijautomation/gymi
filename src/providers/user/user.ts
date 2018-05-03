@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Subject } from 'rxjs/Subject';
 import { User } from '../../models/user';
 import 'rxjs/add/operator/map';
 
@@ -15,21 +15,25 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserProvider {
 
-    private backend = "http://localhost.com/";
-    constructor(public http: HttpClient) {
+    public credentialsInvalid$: Observable<boolean>;
+    public serverError$: Observable<boolean>;
 
+    private backend = "http://urlHere.com/";
+
+    constructor(public http: HttpClient) {
+        this.credentialsInvalid$ = new Subject();
+        this.serverError$ = new Subject();
     }
 
     public getUserInfo(userId: number): Observable<User> {
-        return this.http.get<User>(this.backend + "user/"+userId);
+        return this.http.get<User>(this.backend + "user/" + userId);
     }
 
-    public registerAccount(user: User): Observable<Object>{
-        return this.http.post("http://urlHere.com/", user)
+    public registerAccount(user: User): Observable<Object> {
+        return this.http.post(this.backend, user)
     }
 
     public login(username: string, password: string | undefined) {
-
+        return this.http.post(this.backend + "login", {username: username, password: password});
     }
-
 }
