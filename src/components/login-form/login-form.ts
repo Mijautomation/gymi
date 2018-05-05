@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { UserProvider } from '../../providers/user/user';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
-/**
- * Generated class for the LoginFormComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
     selector: 'login-form',
     templateUrl: 'login-form.html'
 })
+
 export class LoginFormComponent {
 
     private username: string;
@@ -20,12 +14,12 @@ export class LoginFormComponent {
     public credentialsInvalid: boolean;
     public serverError: boolean;
 
-    constructor(private userProvider : UserProvider) {
+    constructor(private authenticationProvider : AuthenticationProvider) {
     }
 
 
     public login() : void {
-        this.userProvider.login(this.username, this.password)
+        this.authenticationProvider.login(this.username, this.password)
             .subscribe(
                 data => this.loginUser(data),
                 err => this.handleError(err)

@@ -19,6 +19,7 @@ import { SessionProvider } from '../providers/session/session';
 import { SocialProvider } from '../providers/social/social';
 import { UserProvider } from '../providers/user/user';
 import { MyApp } from './app.component';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { MyApp } from './app.component';
         EquipmentProvider,
         UserProvider,
         HttpClientModule,
-        SessionProvider
+        SessionProvider,
+    AuthenticationProvider
     ]
 })
 export class AppModule {
