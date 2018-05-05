@@ -38,7 +38,7 @@
     </div>
     <div *ngIf="user.email && user.username && passwordValid() && user.lastName && user.firstName">
         <span>Yay! You're done setting up and are ready to use Gymi to track your progress! :-)</span>
-        <button (click)="registerAccount(user)" ion-button block>Register Account</button>
+        <button class="gymi-button" (click)="registerAccount(user)" ion-button block>Register Account</button>
     </div>
 
 

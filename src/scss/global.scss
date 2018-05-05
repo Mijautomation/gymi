@@ -1,0 +1,19 @@
+.toolbar-background {
+  background-color: $light-blue;
+}
+
+.toolbar-title {
+  color: $very-dark-blue;
+  font-family: nuhome;
+}
+
+.gymi-button {
+  background: $light-blue;
+  color: $very-dark-blue;
+  max-width: calc(100% - 20px);
+  border: none;
+}
+
+ion-footer {
+  text-align: center;
+}

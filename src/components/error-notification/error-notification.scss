@@ -1,7 +1,12 @@
 error-notification {
 
   ion-card-content {
-    background: darkred;
+    font-size: 1rem !important;
+    background: indianred;
     color: white;
+  }
+
+  .card-content-md {
+    font-size: 1rem;
   }
 }

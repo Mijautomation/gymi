@@ -17,6 +17,8 @@
     <error-notification *ngIf="serverError == true" text="Whoops. You cannot use the app at this moment. Either your internet isn't working, or there's a problem on our end."></error-notification>
   </div>
   <div *ngIf="username && password">
-    <button (click)="login(user)" ion-button block>Login</button>
+    <button class="gymi-button" (click)="login(user)"  ion-button outline item-end>
+      Login
+    </button>
   </div>
 </ion-list>
