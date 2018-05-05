@@ -20,6 +20,9 @@ import { SocialProvider } from '../providers/social/social';
 import { UserProvider } from '../providers/user/user';
 import { MyApp } from './app.component';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
+import {TimelinePage} from "../pages/timeline/timeline";
+import {LeaderboardPage} from "../pages/leaderboard/leaderboard";
+import {ProgressionPage} from "../pages/progression/progression";
 
 @NgModule({
     declarations: [
@@ -28,7 +31,10 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
         ContactPage,
         HomePage,
         TabsPage,
-        LoginPage
+        LoginPage,
+        TimelinePage,
+        LeaderboardPage,
+        ProgressionPage
     ],
     imports: [
         BrowserModule,
@@ -45,7 +51,10 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
         HomePage,
         TabsPage,
         RegistrationPage,
-        LoginPage
+        LoginPage,
+        TimelinePage,
+        LeaderboardPage,
+        ProgressionPage
     ],
     providers: [
         StatusBar,

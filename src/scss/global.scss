@@ -1,5 +1,5 @@
 .toolbar-background {
-  background-color: $light-blue;
+  background-color: darkgray;
 }
 
 .toolbar-title {
@@ -16,4 +16,16 @@
 
 ion-footer {
   text-align: center;
+}
+
+.scroll-content {
+  background: $background-color;
+}
+
+.item-md {
+  background: $background-color;
+}
+
+ion-navbar.toolbar {
+  border-top: 6px solid gray;
 }
