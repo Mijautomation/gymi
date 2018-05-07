@@ -1,24 +1,23 @@
 <ion-list>
+    <div hideWhen="user.email && user.username && passwordValid">
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
 
-  <h1>Login</h1>
-  <span>Login to start using the app</span>
-  <div hideWhen="user.email && user.username && passwordValid">
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-
-    <error-notification *ngIf="credentialsInvalid == true" text="Username or Password is invalid."></error-notification>
-    <error-notification *ngIf="serverError == true" text="Whoops. You cannot use the app at this moment. Either your internet isn't working, or there's a problem on our end."></error-notification>
-  </div>
-  <div *ngIf="username && password">
-    <button class="gymi-button" (click)="login(user)"  ion-button outline item-end>
-      Login
-    </button>
-  </div>
+        <error-notification *ngIf="credentialsInvalid == true"
+                            text="Username or Password is invalid."></error-notification>
+        <error-notification *ngIf="serverError == true"
+                            text="Whoops. You cannot use the app at this moment. Either your internet isn't working, or there's a problem on our end."></error-notification>
+    </div>
+    <ion-row>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!username || !password"
+                (click)="login(user)">Login
+        </button>
+    </ion-row>
 </ion-list>
