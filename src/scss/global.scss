@@ -1,0 +1,31 @@
+.toolbar-background {
+  background-color: darkgray;
+}
+
+.toolbar-title {
+  color: $very-dark-blue;
+  font-family: Roboto;
+}
+
+.gymi-button {
+  background: $light-blue;
+  color: $very-dark-blue;
+  max-width: calc(100% - 20px);
+  border: none;
+}
+
+ion-footer {
+  text-align: center;
+}
+
+.scroll-content {
+  background: $background-color;
+}
+
+.item-md {
+  background: $background-color;
+}
+
+ion-navbar.toolbar {
+  border-top: 6px solid gray;
+}

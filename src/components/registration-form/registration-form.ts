@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/user';
-import { UserProvider } from '../../providers/user/user';
 import 'rxjs/add/operator/do';
+import { User } from '../../models/user';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
-/**
- * Generated class for the RegistrationFormComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+
 @Component({
     selector: 'registration-form',
     templateUrl: 'registration-form.html'
 })
+
 export class RegistrationFormComponent {
 
     text: string;
     user: User;
     password1: string = "";
     password2: string = "";
-    constructor(private userProvider: UserProvider) {
+    constructor(private authenticationProvider: AuthenticationProvider) {
         this.user = new User();
     }
 
@@ -30,8 +26,8 @@ export class RegistrationFormComponent {
 
     registerAccount(user: User) {
         this.user.password = this.password1;
-        this.userProvider.registerAccount(user)
+        this.authenticationProvider.registerAccount(user)
             .do((response) => console.log(response))
-            .subscribe((user) => this.userProvider.login(this.user.username, this.user.password));
+            .subscribe((user) => this.authenticationProvider.login(this.user.username, this.user.password));
     }
 }

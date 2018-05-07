@@ -1,7 +1,6 @@
 <ion-list>
 
-    <h1>Registration</h1>
-    <span>Register an account to start sharing your Gym progress, and keep up with your work-out friends.</span>
+    <span>We ask you to fill out some basic details about yourself.</span>
     <div hideWhen="user.email && user.username && passwordValid">
         <ion-item>
             <ion-label floating>Email</ion-label>
@@ -22,6 +21,8 @@
             <ion-label floating>Verify Password</ion-label>
             <ion-input type="password" [(ngModel)]="password2"></ion-input>
         </ion-item>
+        <error-notification *ngIf="!passwordValid() && password1.length > 0 && password2.length > 0"
+                            text="Passwords do not match, or are shorter than 8 characters."></error-notification>
 
     </div>
     <div *ngIf="user.email && user.username && passwordValid()">
@@ -35,11 +36,16 @@
             <ion-input type="text" [(ngModel)]="user.lastName"></ion-input>
         </ion-item>
     </div>
+
     <div *ngIf="user.email && user.username && passwordValid() && user.lastName && user.firstName">
         <span>Yay! You're done setting up and are ready to use Gymi to track your progress! :-)</span>
-        <button (click)="registerAccount(user)" ion-button block>Register Account</button>
     </div>
-
+    <ion-row>
+        <button ion-button class="submit-btn" full type="submit"
+                [disabled]="!user.email || !user.username || !passwordValid() || !user.lastName || !user.firstName"
+                (click)="registerAccount(user)">Sign me up
+        </button>
+    </ion-row>
 
 
 </ion-list>
