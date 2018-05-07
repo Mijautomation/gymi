@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ComponentsModule } from '../components/components.module';
+import { MjwtInterceptor } from '../interceptors/mjwt-interceptor.service';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -20,9 +21,9 @@ import { SocialProvider } from '../providers/social/social';
 import { UserProvider } from '../providers/user/user';
 import { MyApp } from './app.component';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
-import {TimelinePage} from "../pages/timeline/timeline";
-import {LeaderboardPage} from "../pages/leaderboard/leaderboard";
-import {ProgressionPage} from "../pages/progression/progression";
+import { TimelinePage } from "../pages/timeline/timeline";
+import { LeaderboardPage } from "../pages/leaderboard/leaderboard";
+import { ProgressionPage } from "../pages/progression/progression";
 
 @NgModule({
     declarations: [
@@ -65,7 +66,12 @@ import {ProgressionPage} from "../pages/progression/progression";
         UserProvider,
         HttpClientModule,
         SessionProvider,
-    AuthenticationProvider
+        AuthenticationProvider,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: MjwtInterceptor,
+            multi: true
+        }
     ]
 })
 export class AppModule {

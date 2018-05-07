@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class SessionProvider {
 
   private token: string;
-  constructor(public http: HttpClient) {
+  constructor() {
 
   }
 

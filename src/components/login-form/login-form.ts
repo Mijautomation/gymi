@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { SessionProvider } from '../../providers/session/session';
 
 @Component({
     selector: 'login-form',
@@ -14,14 +15,17 @@ export class LoginFormComponent {
     public credentialsInvalid: boolean;
     public serverError: boolean;
 
-    constructor(private authenticationProvider : AuthenticationProvider) {
+    constructor(private authenticationProvider: AuthenticationProvider, private sessionProvider: SessionProvider) {
     }
 
 
-    public login() : void {
+    public login(): void {
         this.authenticationProvider.login(this.username, this.password)
             .subscribe(
-                data => this.loginUser(data),
+                data => {
+                    this.sessionProvider.setCurrentToken(data.body);
+                    this.loginUser(data);
+                },
                 err => this.handleError(err)
             );
     }
