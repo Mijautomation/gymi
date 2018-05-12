@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/do';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { TimelinePage } from '../../pages/timeline/timeline';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
@@ -20,7 +20,10 @@ export class RegistrationFormComponent {
     password1: string = "";
     password2: string = "";
 
-    constructor(private authenticationProvider: AuthenticationProvider, private sessionProvider: SessionProvider, private nav: NavController) {
+    constructor(private authenticationProvider: AuthenticationProvider,
+                private sessionProvider: SessionProvider,
+                private nav: NavController,
+                public toastCtrl: ToastController) {
         this.user = new User();
     }
 
@@ -32,7 +35,7 @@ export class RegistrationFormComponent {
     registerAccount(user: User) {
         this.user.password = sha256(this.password1);
         this.authenticationProvider.registerAccount(user)
-            .subscribe(data => {
+            .subscribe(() => {
                 this.authenticationProvider.login(this.user.username, this.user.password)
                     .subscribe(
                         data2 => {
@@ -46,6 +49,14 @@ export class RegistrationFormComponent {
     }
 
     private handleError(err: any) {
-        console.log(err);
+        this.presentToast(err.error);
+    }
+
+    presentToast(message) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000
+        });
+        toast.present();
     }
 }

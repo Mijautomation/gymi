@@ -9,9 +9,6 @@
             <ion-label floating>Password</ion-label>
             <ion-input type="password" [(ngModel)]="password"></ion-input>
         </ion-item>
-
-        <error-notification *ngIf="credentialsInvalid == true"
-                            text="Username or Password is invalid."></error-notification>
         <error-notification *ngIf="serverError == true"
                             text="Whoops. You cannot use the app at this moment. Either your internet isn't working, or there's a problem on our end."></error-notification>
     </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { sha256 } from 'js-sha256';
 import { TimelinePage } from '../../pages/timeline/timeline';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
@@ -15,10 +15,12 @@ export class LoginFormComponent {
     private username: string;
     private password: string;
 
-    public credentialsInvalid: boolean;
     public serverError: boolean;
 
-    constructor(private authenticationProvider: AuthenticationProvider, private sessionProvider: SessionProvider, private nav: NavController) {
+    constructor(private authenticationProvider: AuthenticationProvider,
+                private sessionProvider: SessionProvider,
+                private nav: NavController,
+                private toastCtrl: ToastController) {
     }
 
 
@@ -34,7 +36,6 @@ export class LoginFormComponent {
     }
 
     private loginUser(data) {
-        this.credentialsInvalid = false;
         this.serverError = false;
         this.nav.setRoot(TimelinePage);
     }
@@ -42,12 +43,19 @@ export class LoginFormComponent {
     private handleError(err) {
         console.log(err);
         if (err.status == 401) {
-            this.credentialsInvalid = true;
             this.serverError = false;
+            this.presentToast("Username or Password is invalid.");
         }
         else {
             this.serverError = true;
-            this.credentialsInvalid = false;
         }
+    }
+
+    private presentToast(message) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000
+        });
+        toast.present();
     }
 }
