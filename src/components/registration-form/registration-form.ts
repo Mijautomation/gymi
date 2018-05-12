@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import 'rxjs/add/operator/do';
+import { NavController } from 'ionic-angular';
 import { User } from '../../models/user';
+import { TimelinePage } from '../../pages/timeline/timeline';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import {sha256} from "js-sha256";
+import { sha256 } from "js-sha256";
+import { SessionProvider } from '../../providers/session/session';
 
 
 @Component({
@@ -17,7 +20,7 @@ export class RegistrationFormComponent {
     password1: string = "";
     password2: string = "";
 
-    constructor(private authenticationProvider: AuthenticationProvider) {
+    constructor(private authenticationProvider: AuthenticationProvider, private sessionProvider: SessionProvider, private nav: NavController) {
         this.user = new User();
     }
 
@@ -29,8 +32,20 @@ export class RegistrationFormComponent {
     registerAccount(user: User) {
         this.user.password = sha256(this.password1);
         this.authenticationProvider.registerAccount(user)
-            .do((response) => console.log(response))
-            .subscribe((user) => this.authenticationProvider.login(this.user.username, this.user.password));
+            .subscribe(data => {
+                this.authenticationProvider.login(this.user.username, this.user.password)
+                    .subscribe(
+                        data2 => {
+                            this.sessionProvider.setCurrentToken(data2.body);
+                            this.nav.setRoot(TimelinePage);
+                        },
+                        err => this.handleError(err)
+                    );
+            },
+                err => this.handleError(err));
     }
 
+    private handleError(err: any) {
+        console.log(err);
+    }
 }

@@ -19,8 +19,8 @@ export class AuthenticationProvider {
     }
 
 
-    public registerAccount(user: User): Observable<Object> {
-        return this.http.post(this.backend + "register", user)
+    public registerAccount(user: User) {
+        return this.http.post(this.backend + "register", user, {observe: 'response', responseType: 'text'});
     }
 
     public login(username: string, password: string | undefined) {
