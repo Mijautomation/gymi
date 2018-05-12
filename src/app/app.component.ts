@@ -20,8 +20,6 @@ export class MyApp {
             } else {
                 this.rootPage = LoginPage;
             }
-            this.rootPage = LoginPage; //TODO: temp
-
             statusBar.styleDefault();
             splashScreen.hide();
         });

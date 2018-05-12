@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import 'rxjs/add/operator/do';
 import { User } from '../../models/user';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
@@ -16,13 +16,14 @@ export class RegistrationFormComponent {
     user: User;
     password1: string = "";
     password2: string = "";
+
     constructor(private authenticationProvider: AuthenticationProvider) {
         this.user = new User();
     }
 
 
     public passwordValid(): boolean {
-        return this.password1 == this.password2 && this.password1.length > 8;
+        return this.password1 == this.password2 && this.password1.length >= 8;
     }
 
     registerAccount(user: User) {
@@ -31,4 +32,5 @@ export class RegistrationFormComponent {
             .do((response) => console.log(response))
             .subscribe((user) => this.authenticationProvider.login(this.user.username, this.user.password));
     }
+
 }
