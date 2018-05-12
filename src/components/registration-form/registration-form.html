@@ -13,7 +13,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Password</ion-label>
+            <ion-label floating>Password (min. 8 characters)</ion-label>
             <ion-input type="password" [(ngModel)]="password1"></ion-input>
         </ion-item>
 
@@ -22,10 +22,11 @@
             <ion-input type="password" [(ngModel)]="password2"></ion-input>
         </ion-item>
         <error-notification *ngIf="!passwordValid() && password1.length > 0 && password2.length > 0"
-                            text="Passwords do not match, or are shorter than 8 characters."></error-notification>
+                            text="Passwords do not match, or is shorter than 8 characters."></error-notification>
 
     </div>
     <div *ngIf="user.email && user.username && passwordValid()">
+        <p>We only need your first and last name. Almost there!</p>
         <ion-item>
             <ion-label floating>First Name</ion-label>
             <ion-input type="text" [(ngModel)]="user.firstName"></ion-input>
@@ -36,12 +37,8 @@
             <ion-input type="text" [(ngModel)]="user.lastName"></ion-input>
         </ion-item>
     </div>
-
-    <div *ngIf="user.email && user.username && passwordValid() && user.lastName && user.firstName">
-        <span>Yay! You're done setting up and are ready to use Gymi to track your progress! :-)</span>
-    </div>
     <ion-row>
-        <button ion-button class="submit-btn" full type="submit"
+        <button ion-button color="green" class="submit-btn" full type="submit"
                 [disabled]="!user.email || !user.username || !passwordValid() || !user.lastName || !user.firstName"
                 (click)="registerAccount(user)">Sign me up
         </button>
