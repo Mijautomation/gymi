@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import 'rxjs/add/operator/do';
-import {User} from '../../models/user';
-import {AuthenticationProvider} from '../../providers/authentication/authentication';
+import { User } from '../../models/user';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import {sha256} from "js-sha256";
 
 
 @Component({
@@ -26,7 +27,7 @@ export class RegistrationFormComponent {
     }
 
     registerAccount(user: User) {
-        this.user.password = this.password1;
+        this.user.password = sha256(this.password1);
         this.authenticationProvider.registerAccount(user)
             .do((response) => console.log(response))
             .subscribe((user) => this.authenticationProvider.login(this.user.username, this.user.password));

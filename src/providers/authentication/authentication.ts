@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/user';
+import { SessionProvider } from '../session/session';
 
 /*
   Generated class for the AuthenticationProvider provider.
@@ -14,7 +15,7 @@ export class AuthenticationProvider {
 
     private backend = "http://localhost:8080/authenticate/";
 
-    constructor(public http: HttpClient) {
+    constructor(public http: HttpClient, public session: SessionProvider) {
     }
 
 
@@ -23,6 +24,6 @@ export class AuthenticationProvider {
     }
 
     public login(username: string, password: string | undefined) {
-        return this.http.post(this.backend + "login", {username: username, password: password});
+        return this.http.post(this.backend + "login", {username: username, password: password}, {observe: 'response', responseType: 'text'});
     }
 }
