@@ -36,6 +36,7 @@ export class LoginFormComponent {
     }
 
     private loginUser(data) {
+        localStorage.setItem("gimmy_account", "true");
         this.serverError = false;
         this.nav.setRoot(TimelinePage);
     }
