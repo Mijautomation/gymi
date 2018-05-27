@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>sessions</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card *ngFor="let session of userSessions">
+        <ion-card-content>
+            {{session.dateTime | date}} <br>
+
+            <ion-row>
+                <ion-col><h2>Activities</h2></ion-col>
+                <ion-col align="right" (click)="toggleActivities(session.id)">
+                    <ion-icon *ngIf="isShowingActivities == session.id" name="arrow-dropdown"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+        </ion-card-content>
+    </ion-card>
+</ion-content>
