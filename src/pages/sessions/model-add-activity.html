@@ -1,0 +1,50 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Add a new session</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let activity of activies">
+        <ion-card-content>
+            <ion-item>
+                <ion-label>Excersise</ion-label>
+                <ion-select [(ngModel)]="activity.activityType" interface="action-sheet">
+                    <ion-option *ngFor="let activityType of this.activityTypes$ | async" [value]="activityType">
+                        {{activityType.name}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="activity.activityType != undefined">
+                <ion-label>Repetitions</ion-label>
+                <ion-input style="text-align: right" placeholder="10" type="number" [(ngModel)]="activity.sessionTimes"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="activity.activityType != undefined">
+                <ion-label>Amount</ion-label>
+                <ion-input style="text-align: right" placeholder="10" [(ngModel)]="activity.amount"></ion-input>
+                <ion-label style="order: 2">{{activity.activityType.unit.name}}</ion-label>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <button ion-button color="green" [disabled]="!areActivitiesValid()" class="submit-btn" full (click)="addAnotherActivity()">
+        Add another equipment
+    </button>
+
+    <ion-fab right bottom>
+        <button (click)="saveActivity()" ion-fab color="green">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-fab left bottom>
+        <button (click)="dismiss()" ion-fab color="assertive">
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-fab>
+
+
+</ion-content>

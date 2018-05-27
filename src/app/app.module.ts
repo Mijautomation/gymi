@@ -14,7 +14,7 @@ import {HomePage} from '../pages/home/home';
 import {LoginPage} from '../pages/login/login';
 import {RegistrationPage} from '../pages/registration/registration';
 import {RegistrationPageModule} from '../pages/registration/registration.module';
-import { SessionsPage } from '../pages/sessions/sessions';
+import { ModalAddActivityPage, SessionsPage } from '../pages/sessions/sessions';
 import {TabsPage} from '../pages/tabs/tabs';
 import {EquipmentProvider} from '../providers/equipment/equipment';
 import {SessionProvider} from '../providers/session/session';
@@ -25,7 +25,7 @@ import {AuthenticationProvider} from '../providers/authentication/authentication
 import {TimelinePage} from "../pages/timeline/timeline";
 import {LeaderboardPage} from "../pages/leaderboard/leaderboard";
 import {ProgressionPage} from "../pages/progression/progression";
-import {ActivityManagementPage, ModalAddActivityPage} from "../pages/activity-management/activity-management";
+import {ActivityManagementPage} from "../pages/activity-management/activity-management";
 import { ActivityProvider } from '../providers/activity/activity';
 
 @NgModule({

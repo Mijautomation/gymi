@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import { Session } from '../../models/session';
 
 /*
   Generated class for the ActivityProvider provider.
@@ -22,4 +23,11 @@ export class ActivityProvider {
         return this.http.get(this.backend + "session");
     }
 
+    createEmptySession() {
+        return this.http.post<Session>(this.backend + "session", "");
+    }
+
+    deleteSession(id) {
+        this.http.delete(this.backend + "session/" + id).subscribe();
+    }
 }
