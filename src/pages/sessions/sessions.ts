@@ -131,6 +131,13 @@ export class ModalAddActivityPage {
         this.activies.push(new Activity(this.session.id));
     }
 
+    saveActivities() {
+        this.activityProvider.saveActivities(this.activies)
+            .subscribe((data) => {
+                this.viewCtrl.dismiss();
+            });
+    }
+
     areActivitiesValid() {
         let isValid = true;
         for(let activity of this.activies) {

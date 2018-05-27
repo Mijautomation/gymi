@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import { Activity } from '../../models/activity';
 import { Session } from '../../models/session';
 
 /*
@@ -29,5 +30,9 @@ export class ActivityProvider {
 
     deleteSession(id) {
         this.http.delete(this.backend + "session/" + id).subscribe();
+    }
+
+    saveActivities(activies: Array<Activity>) {
+        return this.http.post(this.backend, activies);
     }
 }
