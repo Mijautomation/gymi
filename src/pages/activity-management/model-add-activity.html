@@ -10,23 +10,23 @@
     <ion-item>
         <ion-label>Excersise</ion-label>
         <ion-select interface="action-sheet">
-            <ion-option *ngFor="let activity of this.activities" [value]="activity.name">{{activity.name}}</ion-option>
+            <ion-option *ngFor="let activity of this.activities$ | async" [value]="activity.name">{{activity.name}}</ion-option>
         </ion-select>
     </ion-item>
 
-    <ion-item>
-        <ion-label>Repetitions</ion-label>
-        <ion-select interface="action-sheet">
-            <ion-option *ngFor="let activity of this.activities" [value]="activity.name">{{activity.name}}</ion-option>
-        </ion-select>
-    </ion-item>
+    <!--<ion-item>-->
+        <!--<ion-label>Repetitions</ion-label>-->
+        <!--<ion-select interface="action-sheet">-->
+            <!--<ion-option *ngFor="let activity of this.activities" [value]="activity.name">{{activity.name}}</ion-option>-->
+        <!--</ion-select>-->
+    <!--</ion-item>-->
 
-    <ion-item>Excersise
-        <ion-label></ion-label>
-        <ion-select interface="action-sheet">
-            <ion-option *ngFor="let activity of this.activities" [value]="activity.name">{{activity.name}}</ion-option>
-        </ion-select>
-    </ion-item>
+    <!--<ion-item>Excersise-->
+        <!--<ion-label></ion-label>-->
+        <!--<ion-select interface="action-sheet">-->
+            <!--<ion-option *ngFor="let activity of this.activities" [value]="activity.name">{{activity.name}}</ion-option>-->
+        <!--</ion-select>-->
+    <!--</ion-item>-->
 
 
 

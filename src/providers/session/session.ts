@@ -1,11 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
-  Generated class for the SessionProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+ This class is for an app Session, not a Gym Session.
+ For gym sessions, the ActivityProvider is used!
 */
 @Injectable()
 export class SessionProvider {

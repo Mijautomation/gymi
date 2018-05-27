@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {ModalController, IonicPage, NavController, NavParams, ViewController, AlertController} from 'ionic-angular';
-import {ActivityProvider} from "../../providers/activity/activity";
+import { Component } from '@angular/core';
+import { AlertController, IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
+import { ActivityProvider } from "../../providers/activity/activity";
 
 /**
  * Generated class for the ActivityManagementPage page.
@@ -26,11 +26,6 @@ export class ActivityManagementPage {
         let modal = this.modalController.create(ModalAddActivityPage);
         modal.present();
     }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ActivityManagementPage');
-    }
-
 }
 
 @Component({
@@ -38,7 +33,7 @@ export class ActivityManagementPage {
     templateUrl: 'model-add-activity.html',
 })
 export class ModalAddActivityPage {
-    public activities: Array<any>;
+    public activities$;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -46,7 +41,7 @@ export class ModalAddActivityPage {
                 public activityProvider: ActivityProvider,
                 public viewCtrl: ViewController,
                 public alertCtrl: AlertController) {
-        this.activities = activityProvider.getAllActivities();
+        this.activities$ = activityProvider.getAllActivities();
     }
 
     public dismiss() {

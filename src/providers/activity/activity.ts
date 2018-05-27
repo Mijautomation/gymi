@@ -9,25 +9,17 @@ import {Injectable} from '@angular/core';
 */
 @Injectable()
 export class ActivityProvider {
+    private backend = "http://localhost:8080/activity/";
 
     constructor(public http: HttpClient) {
-        console.log('Hello ActivityProvider Provider');
     }
 
     public getAllActivities() {
-        return [{
-            "id": 1,
-            "name": "blaat1"
-        },
-            {
-                "id": 2,
-                "name": "blaat2"
-            },
-            {
-                "id": 3,
-                "name": "blaat3"
-            }
-        ]
+        return this.http.get(this.backend + "type/all");
+    }
+
+    public getAllSessionsForUser() {
+        return this.http.get(this.backend + "session");
     }
 
 }
