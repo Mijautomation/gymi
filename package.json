@@ -9,7 +9,8 @@
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+        "ionic:serve": "ionic-app-scripts serve",
+        "test": "cucumber-js"
     },
     "dependencies": {
         "@angular/common": "5.0.0",
@@ -41,6 +42,7 @@
         "@ionic/app-scripts": "3.1.0",
         "@ionic/cli-plugin-cordova": "1.6.2",
         "@ionic/cli-plugin-ionic-angular": "1.4.1",
+        "cucumber": "^4.2.1",
         "tslint-ionic-rules": "0.0.14",
         "typescript": "2.4.2",
         "ws": "3.3.2"
