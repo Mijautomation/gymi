@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { sha256 } from 'js-sha256';
-import { TimelinePage } from '../../pages/timeline/timeline';
+import { TabsPage } from '../../pages/tabs/tabs';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { SessionProvider } from '../../providers/session/session';
 
@@ -38,7 +38,7 @@ export class LoginFormComponent {
     private loginUser(data) {
         localStorage.setItem("gimmy_account", "true");
         this.serverError = false;
-        this.nav.setRoot(TimelinePage);
+        this.nav.setRoot(TabsPage);
     }
 
     private handleError(err) {

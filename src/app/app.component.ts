@@ -1,12 +1,11 @@
-import {Component} from '@angular/core';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StatusBar} from '@ionic-native/status-bar';
-import {Platform} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { Platform } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
-import {LoginPage} from '../pages/login/login';
-import {RegistrationPage} from '../pages/registration/registration';
-import {ProgressionPage} from "../pages/progression/progression";
-import {TimelinePage} from "../pages/timeline/timeline";
+import { LoginPage } from '../pages/login/login';
+import { RegistrationPage } from '../pages/registration/registration';
+import { TabsPage } from '../pages/tabs/tabs';
 import { SessionProvider } from '../providers/session/session';
 
 @Component({
@@ -19,7 +18,7 @@ export class MyApp {
                 statusBar: StatusBar,
                 splashScreen: SplashScreen,
                 public sessionProvider: SessionProvider) {
-            platform.ready().then(() => {
+        platform.ready().then(() => {
             this.rootPage = this.setRootPage();
             statusBar.styleDefault();
             splashScreen.hide();
@@ -27,8 +26,8 @@ export class MyApp {
     }
 
     private setRootPage(): Page {
-        if(this.sessionProvider.getCurrentToken() != null) {
-            return TimelinePage;
+        if (this.sessionProvider.getCurrentToken() != null) {
+            return TabsPage;
         }
         else {
             if (!localStorage.getItem('gimmy_account')) {
