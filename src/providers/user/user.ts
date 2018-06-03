@@ -18,4 +18,8 @@ export class UserProvider {
         return this.http.get<User>(this.backend + "user/" + userId);
     }
 
+    public getLoggedInUserInfo(): Observable<User> {
+        return this.http.get<User>(this.backend + "user/current");
+    }
+
 }

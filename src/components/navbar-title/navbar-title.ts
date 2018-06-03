@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+
 @Component({
     selector: 'navbar-title',
     templateUrl: 'navbar-title.html'
@@ -18,3 +19,4 @@ export class NavbarTitleComponent {
     }
 
 }
+
