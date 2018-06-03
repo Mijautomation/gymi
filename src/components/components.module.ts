@@ -5,19 +5,22 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { ErrorNotificationComponent } from './error-notification/error-notification';
 import { InfoNotificationComponent } from './info-notification/info-notification';
 import { LoginFormComponent } from './login-form/login-form';
+import { NavbarTitleComponent } from './navbar-title/navbar-title';
 
 @NgModule({
     declarations: [SocialItemComponent,
         RegistrationFormComponent,
         ErrorNotificationComponent,
         InfoNotificationComponent,
-        LoginFormComponent],
+        LoginFormComponent,
+    NavbarTitleComponent],
     imports: [IonicModule],
     exports: [SocialItemComponent,
         RegistrationFormComponent,
         ErrorNotificationComponent,
         InfoNotificationComponent,
-        LoginFormComponent]
+        LoginFormComponent,
+    NavbarTitleComponent]
 
 })
 export class ComponentsModule {
