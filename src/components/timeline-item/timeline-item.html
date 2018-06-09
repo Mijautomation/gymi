@@ -1,0 +1,29 @@
+<ion-card>
+
+  <img src="assets/imgs/{{item.image}}.png" alt="Punching ball">
+
+
+  <ion-card-content>
+    <h2>{{item.title}} - {{item.date | date:'medium'}}</h2>
+    <ion-col>
+      {{item.message}}
+    </ion-col>
+  </ion-card-content>
+
+
+  <ion-row>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>Like</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        Comment
+      </ion-note>
+    </ion-col>
+  </ion-row>
+</ion-card>

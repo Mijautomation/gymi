@@ -1,7 +1,8 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Activity } from '../../models/activity';
 import { Session } from '../../models/session';
+import { Timeline } from '../../models/timeline';
 
 /*
   Generated class for the ActivityProvider provider.
@@ -34,5 +35,9 @@ export class ActivityProvider {
 
     saveActivities(activies: Array<Activity>) {
         return this.http.post(this.backend, activies);
+    }
+
+    public getTimeline(firstIndex: number, lastIndex: number) {
+        return this.http.get<Array<Timeline>>(this.backend + "timeline/" + firstIndex + "/" + lastIndex);
     }
 }
