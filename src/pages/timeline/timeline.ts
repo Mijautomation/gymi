@@ -11,7 +11,7 @@ import { ActivityProvider } from '../../providers/activity/activity';
 export class TimelinePage {
 
     timelineList: Array<Timeline> = [];
-
+    isLoading: boolean = false;
 
     constructor(public navParams: NavParams,
                 public activityProvider: ActivityProvider,
@@ -56,9 +56,11 @@ export class TimelinePage {
     }
 
     doInfinite(infiniteScroll) {
+        this.isLoading = true;
         console.log('Begin async operation');
         this.retrieveTimelineItems(this.timelineList.length, this.timelineList.length + 10);
         setTimeout(() => {
+            this.isLoading = false;
             infiniteScroll.complete();
         }, 2000);
     }
