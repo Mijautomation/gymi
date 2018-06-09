@@ -92,7 +92,7 @@ export class ModalAddActivityPage {
                 public activityProvider: ActivityProvider,
                 public viewCtrl: ViewController,
                 public alertCtrl: AlertController) {
-        this.activityTypes$ = activityProvider.getAllActivities();
+        this.activityTypes$ = activityProvider.getAllActivityTypes();
         activityProvider.createEmptySession()
             .subscribe((data) => {
                 this.session = data;

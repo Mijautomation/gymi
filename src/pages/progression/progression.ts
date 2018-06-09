@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Activity } from '../../models/activity';
+import { ActivityProvider } from '../../providers/activity/activity';
 
 /**
  * Generated class for the ProgressionPage page.
@@ -10,20 +12,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-progression',
-  templateUrl: 'progression.html',
+    selector: 'page-progression',
+    templateUrl: 'progression.html',
 })
 export class ProgressionPage {
 
-  dateRange: string;
+    dateRange: string;
+    activity: Activity;
+    activityTypes;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProgressionPage');
-  }
-
-
+    constructor(public activityProvider: ActivityProvider) {
+        this.activityTypes = activityProvider.getAllActivityTypes();
+    }
 
 }

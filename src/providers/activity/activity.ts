@@ -17,7 +17,7 @@ export class ActivityProvider {
     constructor(public http: HttpClient) {
     }
 
-    public getAllActivities() {
+    public getAllActivityTypes() {
         return this.http.get(this.backend + "type/all");
     }
 

@@ -17,9 +17,18 @@
     <ion-item right align-right>
         <ion-select [(ngModel)]="dateRange">
             <ion-option [selected]="true">All the time</ion-option>
-            <ion-option>Last day</ion-option>
-            <ion-option>Last week</ion-option>
-            <ion-option>Last month</ion-option>
+            <ion-option value="lastDay">Last day</ion-option>
+            <ion-option value="lastWeek">Last week</ion-option>
+            <ion-option value="lastMonth">Last month</ion-option>
         </ion-select>
     </ion-item>
+    <hr>
+    <ion-item right align-right>
+        <ion-select [(ngModel)]="activity" interface="action-sheet">
+            <ion-option *ngFor="let activityType of this.activityTypes | async" [value]="activityType">
+                {{activityType.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <hr>
 </ion-content>
