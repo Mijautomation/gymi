@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import {ModalController} from "ionic-angular";
+import {ProfilePage} from "../../pages/profile/profile";
 
 
 @Component({
@@ -10,12 +12,13 @@ export class NavbarTitleComponent {
     @Input()
     title: string;
 
-    constructor() {
+    constructor(private modalController: ModalController) {
 
     }
 
     openProfile() {
-        console.log("hi");
+        let modal = this.modalController.create(ProfilePage);
+        modal.present();
     }
 
 }

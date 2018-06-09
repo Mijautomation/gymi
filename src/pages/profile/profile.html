@@ -1,12 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Profile</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Profile</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <div align="center" *ngIf="user">
+        <div class="row responsive-lg">
+            <div class="col">
+                <div class="row responsive-md">
+                    <div class="col">Username</div>
+                    <div class="col">{{user.username}}</div>
+                </div>
+                <div class="row responsive-md">
+                    <div class="col">First name</div>
+                    <div class="col">{{user.firstName}}</div>
+                </div>
+                <div class="row responsive-md">
+                    <div class="col">Last name</div>
+                    <div class="col">{{user.lastName}}</div>
+                </div>
+                <div class="row responsive-md">
+                    <div class="col">E-mail</div>
+                    <div class="col">{{user.email}}</div>
+                </div>
+            </div>
+        </div>
+        <!--<h5>>{{this.user.dateOfBirth}}</h5>-->
+    </div>
 
 
 </ion-content>

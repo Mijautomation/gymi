@@ -23,10 +23,15 @@ export class ProfilePage {
         }
         else {
             this.userProvider.getLoggedInUserInfo()
-                .subscribe((data) => this.user = data,
+                .subscribe((data) => {this.user = data; console.log(this.user);},
                     (err) => this.handleError(err));
         }
+
+
     }
+
+
+
 
     private handleError(err) {
         this.presentToast("Something went wrong with retrieving the data.");

@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 @Injectable()
 export class UserProvider {
 
-    private backend = "http://urlHere.com/";
+    private backend = "http://localhost:8080/";
 
     constructor(public http: HttpClient) {
     }
