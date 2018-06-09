@@ -25,6 +25,10 @@ export class ActivityProvider {
         return this.http.get(this.backend + "session");
     }
 
+    public getSession(id: number) {
+        return this.http.get<Session>(this.backend + "session/" + id);
+    }
+
     createEmptySession() {
         return this.http.post<Session>(this.backend + "session", "");
     }

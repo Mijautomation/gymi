@@ -1,29 +1,32 @@
 <ion-card>
 
-  <img src="assets/imgs/{{item.image}}.png" alt="Punching ball">
+    <img src="assets/imgs/{{item.image}}.png" class="timeline-item__image">
 
 
-  <ion-card-content>
-    <h2>{{item.title}} - {{item.date | date:'medium'}}</h2>
-    <ion-col>
-      {{item.message}}
-    </ion-col>
-  </ion-card-content>
+    <ion-card-content>
+        <h2>{{item.title}}</h2>
+        <label class="timeline-item__date">{{item.date | date:'medium'}}</label>
+        <label>{{item.message}}</label>
 
+        <ion-row class="timeline-item__footer" (click)="toggleShowSessionDetails(item.sessionId)">
+            <label *ngIf="item.type == 'session'" class="timeline-item__action">See workout details </label>
+            <ion-icon class="timeline-item__arrow" *ngIf="isShowingSessionDetails != item.sessionId" name="arrow-dropdown"></ion-icon>
+            <ion-icon class="timeline-item__arrow" *ngIf="isShowingSessionDetails == item.sessionId" name="arrow-dropup"></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="isShowingSessionDetails == item.sessionId">
+            <div *ngIf="isLoading">
+                Loading data...
+            </div>
+            <div *ngIf="sessionDetails != undefined">
+                <ion-row *ngFor="let activity of sessionDetails.activities">
+                    <ion-col>
+                        <li>{{activity.activityType.name}} - {{activity.sessionTimes}}x {{activity.amount}}
+                            {{activity.activityType.unit.name}}
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-row>
 
-  <ion-row>
-    <ion-col>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>Like</div>
-      </button>
-    </ion-col>
-    <ion-col center text-center>
-      <ion-note>
-        Comment
-      </ion-note>
-    </ion-col>
-  </ion-row>
+    </ion-card-content>
+
 </ion-card>

@@ -17,7 +17,7 @@
         </ion-refresher-content>
     </ion-refresher>
     <ion-card *ngFor="let session of userSessions">
-        <ion-card-content>
+        <ion-card-content *ngIf="session.activities && session.activities.length > 0">
             {{session.dateTime | date}} <br>
 
             <ion-row>
@@ -29,7 +29,8 @@
             </ion-row>
             <div *ngIf="isShowingActivities == session.id">
                 <ion-row *ngFor="let activity of session.activities">
-                    <ion-col><li>{{activity.activityType.name}}</ion-col>
+                    <ion-col> <li>{{activity.activityType.name}} - {{activity.sessionTimes}}x {{activity.amount}}
+                        {{activity.activityType.unit.name}}</ion-col>
                 </ion-row>
             </div>
         </ion-card-content>
