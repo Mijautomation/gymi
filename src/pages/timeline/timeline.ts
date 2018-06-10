@@ -64,6 +64,15 @@ export class TimelinePage {
             infiniteScroll.complete();
         }, 2000);
     }
+
+    doRefresh(refresher) {
+        console.log('Begin async operation', refresher);
+        this.timelineList = [];
+        this.retrieveTimelineItems(0, 10);
+        setTimeout(() => {
+            refresher.complete();
+        }, 2000);
+    }
 }
 
 

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import 'rxjs/add/operator/do';
 import { NavController, ToastController } from 'ionic-angular';
+import { sha256 } from "js-sha256";
+import 'rxjs/add/operator/do';
 import { User } from '../../models/user';
 import { TabsPage } from '../../pages/tabs/tabs';
-import { TimelinePage } from '../../pages/timeline/timeline';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import { sha256 } from "js-sha256";
 import { SessionProvider } from '../../providers/session/session';
 
 
