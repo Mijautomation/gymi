@@ -11,7 +11,6 @@ import { MjwtInterceptor } from '../interceptors/mjwt-interceptor.service';
 import { AboutPage } from '../pages/about/about';
 import { ActivityManagementPage } from "../pages/activity-management/activity-management";
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { LeaderboardPage } from "../pages/leaderboard/leaderboard";
 import { LoginPage } from '../pages/login/login';
 import { ProgressionPage } from "../pages/progression/progression";
@@ -33,7 +32,6 @@ import {ProfilePage} from "../pages/profile/profile";
         MyApp,
         AboutPage,
         ContactPage,
-        HomePage,
         TabsPage,
         LoginPage,
         TimelinePage,
@@ -57,7 +55,6 @@ import {ProfilePage} from "../pages/profile/profile";
         MyApp,
         AboutPage,
         ContactPage,
-        HomePage,
         TabsPage,
         RegistrationPage,
         LoginPage,
