@@ -1,32 +1,31 @@
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {SplashScreen} from '@ionic-native/splash-screen';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
-import {StatusBar} from '@ionic-native/status-bar';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {ComponentsModule} from '../components/components.module';
-import {MjwtInterceptor} from '../interceptors/mjwt-interceptor.service';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { ComponentsModule } from '../components/components.module';
+import { MjwtInterceptor } from '../interceptors/mjwt-interceptor.service';
 
-import {AboutPage} from '../pages/about/about';
-import {ContactPage} from '../pages/contact/contact';
-import {HomePage} from '../pages/home/home';
-import {LoginPage} from '../pages/login/login';
-import {RegistrationPage} from '../pages/registration/registration';
-import {RegistrationPageModule} from '../pages/registration/registration.module';
+import { AboutPage } from '../pages/about/about';
+import { ActivityManagementPage } from "../pages/activity-management/activity-management";
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { LeaderboardPage } from "../pages/leaderboard/leaderboard";
+import { LoginPage } from '../pages/login/login';
+import { ProgressionPage } from "../pages/progression/progression";
+import { RegistrationPage } from '../pages/registration/registration';
+import { RegistrationPageModule } from '../pages/registration/registration.module';
 import { ModalAddActivityPage, SessionsPage } from '../pages/sessions/sessions';
-import {TabsPage} from '../pages/tabs/tabs';
-import {EquipmentProvider} from '../providers/equipment/equipment';
-import {SessionProvider} from '../providers/session/session';
-import {SocialProvider} from '../providers/social/social';
-import {UserProvider} from '../providers/user/user';
-import {MyApp} from './app.component';
-import {AuthenticationProvider} from '../providers/authentication/authentication';
-import {TimelinePage} from "../pages/timeline/timeline";
-import {LeaderboardPage} from "../pages/leaderboard/leaderboard";
-import {ProgressionPage} from "../pages/progression/progression";
-import {ActivityManagementPage} from "../pages/activity-management/activity-management";
+import { TabsPage } from '../pages/tabs/tabs';
+import { TimelinePage } from "../pages/timeline/timeline";
 import { ActivityProvider } from '../providers/activity/activity';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { SessionProvider } from '../providers/session/session';
+import { UserProvider } from '../providers/user/user';
+import { MyApp } from './app.component';
+import { ChartsModule } from 'ng2-charts';
 import {ProfilePage} from "../pages/profile/profile";
 
 @NgModule({
@@ -50,7 +49,8 @@ import {ProfilePage} from "../pages/profile/profile";
         ComponentsModule,
         RegistrationPageModule,
         HttpClientModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp),
+        ChartsModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -73,8 +73,6 @@ import {ProfilePage} from "../pages/profile/profile";
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        SocialProvider,
-        EquipmentProvider,
         UserProvider,
         HttpClientModule,
         SessionProvider,

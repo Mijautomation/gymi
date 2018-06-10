@@ -68,6 +68,9 @@ export class SessionsPage {
 
     openActivityManagement() {
         let modal = this.modalController.create(ModalAddActivityPage);
+        modal.onDidDismiss(() => {
+            this.loadSessions();
+        });
         modal.present();
     }
 }
@@ -85,7 +88,7 @@ export class ModalAddActivityPage {
                 public activityProvider: ActivityProvider,
                 public viewCtrl: ViewController,
                 public alertCtrl: AlertController) {
-        this.activityTypes$ = activityProvider.getAllActivities();
+        this.activityTypes$ = activityProvider.getAllActivityTypes();
         activityProvider.createEmptySession()
             .subscribe((data) => {
                 this.session = data;
@@ -126,9 +129,8 @@ export class ModalAddActivityPage {
 
     saveActivities() {
         this.activityProvider.saveActivities(this.activies)
-            .subscribe((data) => {
-                this.viewCtrl.dismiss();
-            });
+            .subscribe();
+        this.viewCtrl.dismiss();
     }
 
     areActivitiesValid() {

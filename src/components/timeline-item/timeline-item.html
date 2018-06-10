@@ -18,10 +18,10 @@
                 Loading data...
             </div>
             <div *ngIf="sessionDetails != undefined">
-                <ion-row *ngFor="let activity of sessionDetails.activities">
+                <ion-row *ngFor="let chosenActivityType of sessionDetails.activities">
                     <ion-col>
-                        <li>{{activity.activityType.name}} - {{activity.sessionTimes}}x {{activity.amount}}
-                            {{activity.activityType.unit.name}}
+                        <li>{{chosenActivityType.activityType.name}} - {{chosenActivityType.sessionTimes}}x {{chosenActivityType.amount}}
+                            {{chosenActivityType.activityType.unit.name}}
                     </ion-col>
                 </ion-row>
             </div>

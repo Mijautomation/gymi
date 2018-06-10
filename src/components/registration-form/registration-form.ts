@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import 'rxjs/add/operator/do';
 import { NavController, ToastController } from 'ionic-angular';
-import { User } from '../../models/user';
-import { TimelinePage } from '../../pages/timeline/timeline';
-import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { sha256 } from "js-sha256";
+import 'rxjs/add/operator/do';
+import { User } from '../../models/user';
+import { TabsPage } from '../../pages/tabs/tabs';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { SessionProvider } from '../../providers/session/session';
 
 
@@ -40,7 +40,7 @@ export class RegistrationFormComponent {
                     .subscribe(
                         data2 => {
                             this.sessionProvider.setCurrentToken(data2.body);
-                            this.nav.setRoot(TimelinePage);
+                            this.nav.setRoot(TabsPage);
                         },
                         err => this.handleError(err)
                     );
