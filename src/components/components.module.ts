@@ -16,7 +16,7 @@ import { NavbarTitleComponent } from './navbar-title/navbar-title';
         InfoNotificationComponent,
         LoginFormComponent,
         TimelineItemComponent,
-        ProgressGraphComponent],
+        ProgressGraphComponent,
         NavbarTitleComponent],
     imports: [IonicModule],
     exports: [SocialItemComponent,
@@ -25,8 +25,8 @@ import { NavbarTitleComponent } from './navbar-title/navbar-title';
         InfoNotificationComponent,
         LoginFormComponent,
         TimelineItemComponent,
-    ProgressGraphComponent]
-    NavbarTitleComponent]
+        ProgressGraphComponent,
+        NavbarTitleComponent]
 
 })
 export class ComponentsModule {
