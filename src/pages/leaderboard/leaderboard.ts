@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ActivityProvider} from "../../providers/activity/activity";
+import {Leaderboard} from "../../models/leaderboard";
 
 /**
  * Generated class for the LeaderboardPage page.
@@ -15,11 +17,29 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class LeaderboardPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    leaderboard: Leaderboard;
+    chosenActivityType;
+    activityTypes;
+
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public activityProvider: ActivityProvider
+    ) {
+        this.activityTypes = activityProvider.getAllActivityTypes();
+        this.getLeaderboard(1);
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad LeaderboardPage');
+    }
+
+    public getLeaderboard(activityTypeId: number)
+    {
+        this.activityProvider.getLeaderboard(activityTypeId).subscribe(
+            data => {this.leaderboard = data;console.log(this.leaderboard)},
+            err => console.log(err)
+        );
+
     }
 
     /**
