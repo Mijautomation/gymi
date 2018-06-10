@@ -20,6 +20,7 @@ export class MyApp {
                 public sessionProvider: SessionProvider) {
         platform.ready().then(() => {
             this.rootPage = this.setRootPage();
+            const backendUrl = "http://176.9.136.144:8080/Gymi/";
             statusBar.styleDefault();
             splashScreen.hide();
         });
