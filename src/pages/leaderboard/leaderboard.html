@@ -16,11 +16,23 @@
                 refreshingText="Refreshing...">
         </ion-refresher-content>
     </ion-refresher>
+    <ion-item right align-right>
+        //TODO: default value
+        <ion-select *ngIf="this.activityTypes"
+                    [(ngModel)]="chosenActivityType"
+                    interface="action-sheet"
+                    (ionChange)="getLeaderboard(chosenActivityType.id)">
+            <ion-option *ngFor="let activityType of this.activityTypes | async" [value]="activityType">
+                {{activityType.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
     <ion-list>
-        <ion-item class="item-avatar" *ngFor="let index of [0,1,2,3,45]" type="item-text-wrap">
-            <h2>Jimmy de Graaf</h2>
-            <div right text-right><p>Points </p>
-                <ion-note>500</ion-note>
+        <ion-item class="item-avatar" *ngFor="let topActivity of this.leaderboard" type="item-text-wrap">
+            <h2>{{topActivity.user.firstName + ' ' + topActivity.user.lastName}}</h2>
+            <ion-note>Archieved on {{topActivity.activity.dateTime | date}}</ion-note>
+            <div right text-right><p>Score</p>
+                <ion-note>{{topActivity.activity.amount}} {{topActivity.activity.activityType.unit.name}}</ion-note>
             </div>
         </ion-item>
     </ion-list>
