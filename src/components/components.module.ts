@@ -6,6 +6,7 @@ import { ErrorNotificationComponent } from './error-notification/error-notificat
 import { InfoNotificationComponent } from './info-notification/info-notification';
 import { LoginFormComponent } from './login-form/login-form';
 import { TimelineItemComponent } from './timeline-item/timeline-item';
+import { ProgressGraphComponent } from './progress-graph/progress-graph';
 
 @NgModule({
     declarations: [SocialItemComponent,
@@ -13,14 +14,16 @@ import { TimelineItemComponent } from './timeline-item/timeline-item';
         ErrorNotificationComponent,
         InfoNotificationComponent,
         LoginFormComponent,
-        TimelineItemComponent],
+        TimelineItemComponent,
+    ProgressGraphComponent],
     imports: [IonicModule],
     exports: [SocialItemComponent,
         RegistrationFormComponent,
         ErrorNotificationComponent,
         InfoNotificationComponent,
         LoginFormComponent,
-        TimelineItemComponent]
+        TimelineItemComponent,
+    ProgressGraphComponent]
 
 })
 export class ComponentsModule {

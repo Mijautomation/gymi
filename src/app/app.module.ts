@@ -25,6 +25,7 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
 import { SessionProvider } from '../providers/session/session';
 import { UserProvider } from '../providers/user/user';
 import { MyApp } from './app.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: [
@@ -46,7 +47,8 @@ import { MyApp } from './app.component';
         ComponentsModule,
         RegistrationPageModule,
         HttpClientModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp),
+        ChartsModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
