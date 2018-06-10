@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar>
         <ion-title>Profile</ion-title>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+        </button>
     </ion-navbar>
 
 </ion-header>
@@ -27,9 +30,10 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-10 offset-md-1">
                         <h4>Add a friend</h4>
-                        <ion-input placeholder="Look for a username" [(ngModel)]="searchUsername" (keyup)="searchUsername.length >= 3 && searchByUsername()" clearInput></ion-input>
-                        <div *ngIf="this.foundUser">
-                            {{this.foundUser.username}} <ion-icon name="md-add-circle" (click)="addFriend(this.foundUser.id)"></ion-icon>
+                        <ion-input placeholder="Look for a username" [(ngModel)]="searchUsername" (keyup)="searchUsername && searchUsername.length >= 3 && searchByUsername()" clearInput></ion-input>
+                        <div *ngIf="this.foundUser" class="list">
+                            <div class="item item-divider">User found:</div>
+                            <div class="item">{{this.foundUser.username}} <ion-icon name="md-add-circle" (click)="addFriend(this.foundUser.id)"></ion-icon></div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +42,7 @@
                     <div class="col-xs-12 col-md-10 offset-md-1">
                         <h4>Your friends</h4>
                         <ul *ngFor="let friend of this.friends">
-                            <ion-item>{{friend.user.firstName}} - <i>since: {{friend.friendsSince | date}}</i></ion-item>
+                            <ion-item>{{friend.user.firstName}} - <i>since: {{friend.friendsSince | date}}</i> <ion-icon name="trash" (click)="deleteFriendship(friend.user.id)"></ion-icon></ion-item>
                         </ul>
                     </div>
                 </div>

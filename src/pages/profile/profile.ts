@@ -1,8 +1,17 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {
+    AlertController,
+    IonicPage,
+    ModalController,
+    NavController,
+    NavParams,
+    ToastController,
+    ViewController
+} from 'ionic-angular';
 import {User} from '../../models/user';
 import {UserProvider} from '../../providers/user/user';
 import {FriendResponse} from "../../models/friendResponse";
+import {Observable} from "rxjs/Observable";
 
 
 @IonicPage()
@@ -21,7 +30,9 @@ export class ProfilePage {
     constructor(
         public navParams: NavParams,
         public userProvider: UserProvider,
-        public toastCtrl: ToastController
+        public toastCtrl: ToastController,
+        private viewController: ViewController,
+        public alertCtrl: AlertController
     ) {
         let userId = this.navParams.get('userId');
         if (userId) {
@@ -50,7 +61,9 @@ export class ProfilePage {
     public addFriend(userId: number) {
         this.userProvider.sendFriendRequest(this.user.id, userId)
             .subscribe(() => this.presentToast("Friend added!"),
-                err => {this.handleError(err);console.log(err)}
+                err => {
+                    this.presentToast("You are already friends with this person");
+                }
             )
         ;
     }
@@ -59,7 +72,6 @@ export class ProfilePage {
         this.userProvider.getFriendsForUser(this.user.id)
             .subscribe((data) => {
                     this.friends = data;
-                    console.log(this.friends);
                     this.showFriends = true
                 },
                 (err) => this.handleError(err));
@@ -68,6 +80,35 @@ export class ProfilePage {
 
     private handleError(err) {
         this.presentToast("Something went wrong with retrieving the data.");
+    }
+
+
+    public deleteFriendship(userId2: number) {
+        let confirm = this.alertCtrl.create({
+            title: 'Are you sure you want to delete this friendship?',
+            message: 'This cannot be undone',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: () => {
+                    }
+                },
+                {
+                    text: 'Yes',
+                    handler: () => {
+                        this.userProvider.deleteFriendship(userId2).subscribe(
+                            () => this.presentToast("Friend deleted"),
+                            err => console.log(err)
+                        );
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    }
+
+    closeModal() {
+        this.viewController.dismiss();
     }
 
     private presentToast(message) {

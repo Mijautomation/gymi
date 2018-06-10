@@ -31,12 +31,17 @@ export class UserProvider {
 
     public getUserByUsername(username: string): Observable<User>
     {
-        return this.http.get<User>(this.backend + '/user/username/' + username);
+        return this.http.get<User>(this.backend + 'user/username/' + username);
     }
 
     public sendFriendRequest(userId1: number, userId2: number): Observable<Friend>
     {
-        return this.http.post<Friend>(this.backend + '/user/sendFriendRequest/' + userId1 + '/' + userId2, {observe: 'response', responseType: 'text'});
+        return this.http.post<Friend>(this.backend + 'user/sendFriendRequest/' + userId1 + '/' + userId2, {});
+    }
+
+    public deleteFriendship(userId2: number)
+    {
+        return this.http.delete(this.backend + 'user/deleteFriendship/' + userId2,{observe: 'response', responseType: 'text'});
     }
 
 }
