@@ -15,16 +15,21 @@
 
 <ion-content padding>
     <ion-item right align-right>
-        <ion-select [(ngModel)]="dateRange">
-            <ion-option [selected]="true">All the time</ion-option>
-            <ion-option value="lastDay">Last day</ion-option>
+        <ion-select [(ngModel)]="dateRange"
+                    interface="action-sheet"
+                    (ionChange)="retrieveData(chosenActivityType, dateRange)">
+            <ion-option [selected]="true" value="always">All the time</ion-option>
             <ion-option value="lastWeek">Last week</ion-option>
             <ion-option value="lastMonth">Last month</ion-option>
+            <ion-option value="lastYear">Last Year</ion-option>
         </ion-select>
     </ion-item>
     <hr>
     <ion-item right align-right>
-        <ion-select [(ngModel)]="activity" interface="action-sheet">
+        <ion-select *ngIf="this.activityTypes"
+                    [(ngModel)]="chosenActivityType"
+                    interface="action-sheet"
+                    (ionChange)="retrieveData(chosenActivityType, dateRange)">
             <ion-option *ngFor="let activityType of this.activityTypes | async" [value]="activityType">
                 {{activityType.name}}
             </ion-option>

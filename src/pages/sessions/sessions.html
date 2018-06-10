@@ -28,9 +28,9 @@
                 </ion-col>
             </ion-row>
             <div *ngIf="isShowingActivities == session.id">
-                <ion-row *ngFor="let activity of session.activities">
-                    <ion-col> <li>{{activity.activityType.name}} - {{activity.sessionTimes}}x {{activity.amount}}
-                        {{activity.activityType.unit.name}}</ion-col>
+                <ion-row *ngFor="let chosenActivityType of session.activities">
+                    <ion-col> <li>{{chosenActivityType.activityType.name}} - {{chosenActivityType.sessionTimes}}x {{chosenActivityType.amount}}
+                        {{chosenActivityType.activityType.unit.name}}</ion-col>
                 </ion-row>
             </div>
         </ion-card-content>

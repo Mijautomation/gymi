@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ToastController } from 'ionic-angular';
 import { Activity } from '../../models/activity';
 import { ActivityProvider } from '../../providers/activity/activity';
 
@@ -17,12 +17,35 @@ import { ActivityProvider } from '../../providers/activity/activity';
 })
 export class ProgressionPage {
 
-    dateRange: string;
-    activity: Activity;
+    dateRange: string = "always";
+    chosenActivityType;
     activityTypes;
 
-    constructor(public activityProvider: ActivityProvider) {
+    progressionInfo: Array<Activity>;
+
+    constructor(public activityProvider: ActivityProvider,
+                public toastCtrl: ToastController) {
         this.activityTypes = activityProvider.getAllActivityTypes();
     }
 
+    retrieveData(activityType, dateRange: string) {
+        if(this.dateRange && this.chosenActivityType) {
+            this.activityProvider.getProgression(activityType, dateRange)
+                .subscribe((data) => this.progressionInfo = data,
+                    (error) => this.handleError(error));
+        }
+    }
+
+    private handleError(err) {
+        console.log(err);
+        this.presentToast("Something went wrong with retrieving the data.");
+    }
+
+    private presentToast(message) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000
+        });
+        toast.present();
+    }
 }

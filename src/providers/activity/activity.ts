@@ -44,4 +44,8 @@ export class ActivityProvider {
     public getTimeline(firstIndex: number, lastIndex: number) {
         return this.http.get<Array<Timeline>>(this.backend + "timeline/" + firstIndex + "/" + lastIndex);
     }
+
+    getProgression(activityType, dateRange: string) {
+        return this.http.get<Array<Activity>>(this.backend + "progress/"+ activityType.id + "/" + dateRange);
+    }
 }

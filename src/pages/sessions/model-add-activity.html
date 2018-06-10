@@ -7,26 +7,26 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card *ngFor="let activity of activies">
+    <ion-card *ngFor="let chosenActivityType of activies">
         <ion-card-content>
             <ion-item>
                 <ion-label>Excersise</ion-label>
-                <ion-select [(ngModel)]="activity.activityType" interface="action-sheet">
+                <ion-select [(ngModel)]="chosenActivityType.activityType" interface="action-sheet">
                     <ion-option *ngFor="let activityType of this.activityTypes$ | async" [value]="activityType">
                         {{activityType.name}}
                     </ion-option>
                 </ion-select>
             </ion-item>
 
-            <ion-item *ngIf="activity.activityType != undefined">
+            <ion-item *ngIf="chosenActivityType.activityType != undefined">
                 <ion-label>Repetitions</ion-label>
-                <ion-input style="text-align: right" placeholder="10" type="number" [(ngModel)]="activity.sessionTimes"></ion-input>
+                <ion-input style="text-align: right" placeholder="10" type="number" [(ngModel)]="chosenActivityType.sessionTimes"></ion-input>
             </ion-item>
 
-            <ion-item *ngIf="activity.activityType != undefined">
+            <ion-item *ngIf="chosenActivityType.activityType != undefined">
                 <ion-label>Amount</ion-label>
-                <ion-input style="text-align: right" placeholder="10" [(ngModel)]="activity.amount"></ion-input>
-                <ion-label style="order: 2">{{activity.activityType.unit.name}}</ion-label>
+                <ion-input style="text-align: right" placeholder="10" [(ngModel)]="chosenActivityType.amount"></ion-input>
+                <ion-label style="order: 2">{{chosenActivityType.activityType.unit.name}}</ion-label>
             </ion-item>
         </ion-card-content>
     </ion-card>
