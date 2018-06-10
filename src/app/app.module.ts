@@ -27,6 +27,7 @@ import {LeaderboardPage} from "../pages/leaderboard/leaderboard";
 import {ProgressionPage} from "../pages/progression/progression";
 import {ActivityManagementPage} from "../pages/activity-management/activity-management";
 import { ActivityProvider } from '../providers/activity/activity';
+import {ProfilePage} from "../pages/profile/profile";
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { ActivityProvider } from '../providers/activity/activity';
         ProgressionPage,
         ActivityManagementPage,
         ModalAddActivityPage,
-        SessionsPage
+        SessionsPage,
+        ProfilePage
     ],
     imports: [
         BrowserModule,
@@ -64,7 +66,8 @@ import { ActivityProvider } from '../providers/activity/activity';
         ProgressionPage,
         ActivityManagementPage,
         ModalAddActivityPage,
-        SessionsPage
+        SessionsPage,
+        ProfilePage
     ],
     providers: [
         StatusBar,

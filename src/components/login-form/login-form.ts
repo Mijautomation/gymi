@@ -4,6 +4,7 @@ import { sha256 } from 'js-sha256';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { SessionProvider } from '../../providers/session/session';
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
     selector: 'login-form',
@@ -18,6 +19,7 @@ export class LoginFormComponent {
     public serverError: boolean;
 
     constructor(private authenticationProvider: AuthenticationProvider,
+                private userProvider: UserProvider,
                 private sessionProvider: SessionProvider,
                 private nav: NavController,
                 private toastCtrl: ToastController) {
