@@ -4,7 +4,6 @@ import {
     IonicPage,
     ModalController,
     NavController,
-    NavParams,
     ToastController,
     ViewController
 } from 'ionic-angular';
@@ -12,12 +11,6 @@ import { Activity } from '../../models/activity';
 import { Session } from '../../models/session';
 import { ActivityProvider } from '../../providers/activity/activity';
 
-/**
- * Generated class for the SessionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

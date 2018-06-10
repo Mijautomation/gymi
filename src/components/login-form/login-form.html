@@ -2,12 +2,12 @@
     <div hideWhen="user.email && user.username && passwordValid">
         <ion-item>
             <ion-label floating>Username</ion-label>
-            <ion-input type="text" [(ngModel)]="username" value="Milanosie"></ion-input>
+            <ion-input type="text" [(ngModel)]="username" value="jimmy"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="password" value="Stront666!"></ion-input>
+            <ion-input type="password" [(ngModel)]="password" value="12345678"> </ion-input>
         </ion-item>
         <error-notification *ngIf="serverError == true"
                             text="Whoops. You cannot use the app at this moment. Either your internet isn't working, or there's a problem on our end."></error-notification>

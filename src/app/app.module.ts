@@ -26,6 +26,7 @@ import { SessionProvider } from '../providers/session/session';
 import { UserProvider } from '../providers/user/user';
 import { MyApp } from './app.component';
 import { ChartsModule } from 'ng2-charts';
+import {ProfilePage} from "../pages/profile/profile";
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { ChartsModule } from 'ng2-charts';
         ProgressionPage,
         ActivityManagementPage,
         ModalAddActivityPage,
-        SessionsPage
+        SessionsPage,
+        ProfilePage
     ],
     imports: [
         BrowserModule,
@@ -64,7 +66,8 @@ import { ChartsModule } from 'ng2-charts';
         ProgressionPage,
         ActivityManagementPage,
         ModalAddActivityPage,
-        SessionsPage
+        SessionsPage,
+        ProfilePage
     ],
     providers: [
         StatusBar,
