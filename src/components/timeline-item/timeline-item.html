@@ -5,7 +5,7 @@
 
     <ion-card-content>
         <h2>{{item.title}}</h2>
-        <label class="timeline-item__date">{{item.date | date:'medium'}}</label>
+        <label class="timeline-item__date">{{item.date | date:'medium'}}</label> <hr>
         <label>{{item.message}}</label>
 
         <ion-row class="timeline-item__footer" (click)="toggleShowSessionDetails(item.sessionId)">

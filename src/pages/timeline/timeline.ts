@@ -12,6 +12,7 @@ export class TimelinePage {
 
     timelineList: Array<Timeline> = [];
     isLoading: boolean = false;
+    noMoreData: boolean = false;
 
     constructor(public navParams: NavParams,
                 public activityProvider: ActivityProvider,
@@ -35,10 +36,11 @@ export class TimelinePage {
 
     private handleData(data: Array<Timeline>) {
         if(data.length == 0) {
-            this.presentToast("There's no new items available.");
+           this.noMoreData = true;
         }
         else {
             this.timelineList = this.timelineList.concat(data);
+            this.noMoreData = false;
         }
     }
 
