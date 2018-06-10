@@ -12,7 +12,7 @@ import { Timeline } from '../../models/timeline';
 */
 @Injectable()
 export class ActivityProvider {
-    private backend = "http://localhost:8080/activity/";
+    private backend = "http://176.9.136.144:8080/gymi-1.0.0/activity/";
 
     constructor(public http: HttpClient) {
     }

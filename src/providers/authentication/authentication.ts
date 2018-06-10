@@ -13,7 +13,7 @@ import { SessionProvider } from '../session/session';
 @Injectable()
 export class AuthenticationProvider {
 
-    private backend = "http://localhost:8080/authenticate/";
+    private backend = "http://176.9.136.144:8080/gymi-1.0.0/authenticate/";
 
     constructor(public http: HttpClient, public session: SessionProvider) {
     }

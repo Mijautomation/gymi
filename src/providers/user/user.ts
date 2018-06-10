@@ -11,7 +11,7 @@ import {Friend} from "../../models/friend";
 @Injectable()
 export class UserProvider {
 
-    private backend = "http://localhost:8080/";
+    private backend = "http://176.9.136.144:8080/gymi-1.0.0/";
 
     constructor(public http: HttpClient) {
     }
