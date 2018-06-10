@@ -14,17 +14,19 @@
 
 
 <ion-content padding>
-    <ion-item right align-right>
-        <ion-select [(ngModel)]="dateRange"
-                    interface="action-sheet"
-                    (ionChange)="retrieveData(chosenActivityType, dateRange)">
-            <ion-option [selected]="true" value="always">All the time</ion-option>
-            <ion-option value="lastWeek">Last week</ion-option>
-            <ion-option value="lastMonth">Last month</ion-option>
-            <ion-option value="lastYear">Last Year</ion-option>
-        </ion-select>
-    </ion-item>
-    <hr>
+
+    // TODO - IF TIME IS LEFT, MAKE THIS WORK
+    <!--<ion-item right align-right>-->
+        <!--<ion-select [(ngModel)]="dateRange"-->
+                    <!--interface="action-sheet"-->
+                    <!--(ionChange)="retrieveData(chosenActivityType, dateRange)">-->
+            <!--<ion-option [selected]="true" value="always">All the time</ion-option>-->
+            <!--<ion-option value="lastWeek">Last week</ion-option>-->
+            <!--<ion-option value="lastMonth">Last month</ion-option>-->
+            <!--<ion-option value="lastYear">Last Year</ion-option>-->
+        <!--</ion-select>-->
+    <!--</ion-item>-->
+    <!--<hr>-->
     <ion-item right align-right>
         <ion-select *ngIf="this.activityTypes"
                     [(ngModel)]="chosenActivityType"
