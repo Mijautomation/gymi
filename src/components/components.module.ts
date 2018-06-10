@@ -5,6 +5,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { ErrorNotificationComponent } from './error-notification/error-notification';
 import { InfoNotificationComponent } from './info-notification/info-notification';
 import { LoginFormComponent } from './login-form/login-form';
+import { TimelineItemComponent } from './timeline-item/timeline-item';
 import { NavbarTitleComponent } from './navbar-title/navbar-title';
 
 @NgModule({
@@ -13,13 +14,15 @@ import { NavbarTitleComponent } from './navbar-title/navbar-title';
         ErrorNotificationComponent,
         InfoNotificationComponent,
         LoginFormComponent,
-    NavbarTitleComponent],
+    NavbarTitleComponent,
+        TimelineItemComponent],
     imports: [IonicModule],
     exports: [SocialItemComponent,
         RegistrationFormComponent,
         ErrorNotificationComponent,
         InfoNotificationComponent,
         LoginFormComponent,
+        TimelineItemComponent,
     NavbarTitleComponent]
 
 })
