@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Activity } from '../../models/activity';
 import { Session } from '../../models/session';
 import { Timeline } from '../../models/timeline';
+import {Observable} from "rxjs/Observable";
+import {Leaderboard} from "../../models/leaderboard";
 
 /*
   Generated class for the ActivityProvider provider.
@@ -47,5 +49,10 @@ export class ActivityProvider {
 
     getProgression(activityType, dateRange: string) {
         return this.http.get<Array<Activity>>(this.backend + "progress/"+ activityType.id + "/" + dateRange);
+    }
+
+    public getLeaderboard(activityTypeId: number): Observable<Leaderboard>
+    {
+        return this.http.get<Leaderboard>(this.backend + "leaderboard/" + activityTypeId);
     }
 }
