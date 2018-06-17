@@ -128,9 +128,11 @@ export class ModalAddActivityPage {
     }
 
     saveActivities() {
-        this.activityProvider.saveActivities(this.activies)
-            .subscribe();
-        this.viewCtrl.dismiss();
+        if(this.areActivitiesValid()) {
+            this.activityProvider.saveActivities(this.activies)
+                .subscribe();
+            this.viewCtrl.dismiss();
+        }
     }
 
     areActivitiesValid() {
