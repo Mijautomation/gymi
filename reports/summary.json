@@ -1,0 +1,458 @@
+[
+  {
+    "description": "  As a user of the app\n  I want to be able to login\n  So I can use the app",
+    "keyword": "Feature",
+    "name": "Login",
+    "line": 1,
+    "id": "login",
+    "tags": [],
+    "uri": "e2e/features/login.feature",
+    "elements": [
+      {
+        "id": "login;login-with-correct-credentials",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Login with correct credentials",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I go to the login page",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I type \"test\" into the \"username\" field",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1377000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I type \"test12345\" into the \"password\" field",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 93000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I click the \"login\" button",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I am on the \"timeline\" page",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:66"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:14"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;login-with-wrong-credentials",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Login with wrong credentials",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:10"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "I go to the login page",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I type \"milanosie\" into the \"username\" field",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1061000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I type \"12345678\" into the \"password\" field",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 90000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I click the \"login\" button",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I see an error notification",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:71"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:14"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "  As a user of the app\n  I want to be able to add my gym sessions\n  So I can keep track of the progress and share them with my friends",
+    "keyword": "Feature",
+    "name": "Adding gym sessions",
+    "line": 1,
+    "id": "adding-gym-sessions",
+    "tags": [],
+    "uri": "e2e/features/session.feature",
+    "elements": [
+      {
+        "id": "adding-gym-sessions;navigating-to-the-add-modal",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Navigating to the add modal",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:10"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I am logged in as user \"test\" with password \"test12345\"",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I click the \"Sessions\" tab",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1555000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I click the plus fab",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 584000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I am on the \"new-session\" page",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:66"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:14"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "adding-gym-sessions;adding-a-session",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Adding a session",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:10"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "I am logged in as user \"test\" with password \"test12345\"",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I click the \"Sessions\" tab",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1589000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I click the plus fab",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 573000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click the activities button",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:60"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 185000000,
+              "error_message": "WebDriverError: unknown error: Element <button aria-haspopup=\"true\" class=\"item-cover item-cover-md item-cover-default item-cover-default-md\" ion-button=\"item-cover\" type=\"button\" id=\"select-6-0\" aria-labelledby=\"lbl-6\" aria-disabled=\"false\">...</button> is not clickable at point (600, 205). Other element would receive the click: <div class=\"click-block click-block-enabled click-block-active\"></div>\n  (Session info: chrome=67.0.3396.87)\n  (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64)\n    at WebDriverError (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/error.js:27:5)\n    at Object.checkLegacyResponse (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/error.js:546:15)\n    at parseHttpResponse (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/http.js:509:13)\n    at doSend.then.response (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/http.js:441:30)\n    at process._tickCallback (internal/process/next_tick.js:109:7)\nFrom: Task: WebElement.click()\n    at Driver.schedule (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/webdriver.js:807:17)\n    at WebElement.schedule_ (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/webdriver.js:2010:25)\n    at WebElement.click (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/webdriver.js:2092:17)\n    at actionFn (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/protractor/built/element.js:89:44)\n    at Array.map (native)\n    at actionResults.getWebElements.then (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/protractor/built/element.js:461:65)\n    at ManagedPromise.invokeCallback_ (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/promise.js:1376:14)\n    at TaskQueue.execute_ (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/promise.js:3084:14)\n    at TaskQueue.executeNext_ (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/promise.js:3067:27)\n    at asyncRun (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/promise.js:2927:27)\n    at /Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/selenium-webdriver/lib/promise.js:668:7\n    at process._tickCallback (internal/process/next_tick.js:109:7)Error\n    at ElementArrayFinder.applyAction_ (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/protractor/built/element.js:459:27)\n    at ElementArrayFinder.(anonymous function) [as click] (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/protractor/built/element.js:91:29)\n    at ElementFinder.(anonymous function) [as click] (/Users/milansteenwinkel/Desktop/Projects/gymi/node_modules/protractor/built/element.js:831:22)\n    at AppPage.clickActivitiesButton (/Users/milansteenwinkel/Desktop/Projects/gymi/e2e/features/step_definitions/app.po.ts:48:14)\n    at World.<anonymous> (/Users/milansteenwinkel/Desktop/Projects/gymi/e2e/features/step_definitions/my_steps.ts:61:19)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I click the button with text \"Rowing\"",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:63"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click the save fab",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:52"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I am on the \"session\" page",
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:66"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/features/step_definitions/my_steps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

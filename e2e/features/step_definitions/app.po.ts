@@ -1,4 +1,4 @@
-import { browser, by, element, until } from 'protractor';
+import { browser, by, element, ExpectedConditions, protractor, until } from 'protractor';
 
 export class AppPage {
 
@@ -17,7 +17,7 @@ export class AppPage {
     }
 
     public seePage(page: string) {
-        return element(by.id("page-"+page));
+        return element(by.id("page-" + page));
     }
 
     public getElement(name: string) {
@@ -33,6 +33,23 @@ export class AppPage {
     public clickPlusFab() {
         browser.sleep(500);
         return element(by.tagName("ion-fab"))
+            .click();
+    }
+
+    public selectOption(selector, item) {
+        let selectList, desiredOption;
+
+        selectList = element(by.id(selector));
+        selectList.click();
+    }
+
+    public clickActivitiesButton() {
+        return element(by.className("item-cover"))
+            .click();
+    }
+
+    clickButtonWithText(text: string) {
+        return element(by.buttonText(text))
             .click();
     }
 }

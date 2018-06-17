@@ -8,7 +8,7 @@
 <ion-content padding>
     <ion-card *ngFor="let chosenActivityType of activies">
         <ion-card-content>
-            <ion-item>
+            <ion-item id="activity-select">
                 <ion-label>Excersise</ion-label>
                 <ion-select [(ngModel)]="chosenActivityType.activityType" interface="action-sheet">
                     <ion-option *ngFor="let activityType of this.activityTypes$ | async" [value]="activityType">

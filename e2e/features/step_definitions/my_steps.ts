@@ -2,6 +2,7 @@ import { After, defineSupportCode } from 'cucumber';
 import { expect } from 'chai';
 import { AppPage } from './app.po';
 import { browser } from 'protractor';
+import 'jasmine';
 
 defineSupportCode(({Given, When, Then, Before}) => {
     let app: AppPage;
@@ -12,7 +13,7 @@ defineSupportCode(({Given, When, Then, Before}) => {
 
     After(() => {
         // browser.executeScript('window.sessionStorage.clear();');
-        // browser.executeScript('window.localStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
     });
 
     Given('I am on the login page',
@@ -25,6 +26,7 @@ defineSupportCode(({Given, When, Then, Before}) => {
             app.navigateTo();
             app.clickButton("go-to-login");
         });
+
 
     Given('I am logged in as user {string} with password {string}',
         (username: string, password: string) => {
@@ -46,6 +48,20 @@ defineSupportCode(({Given, When, Then, Before}) => {
 
     When("I click the plus fab",
         () => app.clickPlusFab());
+
+    When("I click the save fab",
+        () => app.clickPlusFab());
+
+    When("I select {string} from the select {string}",
+        (item: string, field: string) => {
+            app.selectOption(field, item);
+        });
+
+    When("I click the activities button",
+        () => app.clickActivitiesButton());
+
+    When("I click the button with text {string}",
+        (text: string) => app.clickButtonWithText(text));
 
     Then("I am on the {string} page",
         (page: string) => {
